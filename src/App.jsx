@@ -158,9 +158,9 @@ const DollarSignIcon = ({ className = "w-6 h-6" }) => (
 
 
 export default function App() {
-  // Official Phone & Direct WhatsApp Link
-  const ATYLUS_PHONE_NUMBER = "5521973158363";
-  const ATYLUS_FORMATTED_PHONE = "+55 (21) 97315-8363";
+  // Official Phone & Direct WhatsApp Link (Leitura do .env)
+  const ATYLUS_PHONE_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || "5521973158363";
+  const ATYLUS_FORMATTED_PHONE = import.meta.env.VITE_WHATSAPP_DISPLAY || "+55 (21) 97315-8363";
   
   const DIRECT_WHATSAPP_URL = `https://wa.me/${ATYLUS_PHONE_NUMBER}?text=${encodeURIComponent(
     "Olá! Vim pelo Instagram e quero agendar a Consultoria Presencial para o meu restaurante!"
@@ -171,7 +171,7 @@ export default function App() {
   const [formData, setFormData] = useState({
     name: '',
     restaurantName: '',
-    neighborhood: 'Barra da Tijuca / Z. Oeste',
+    neighborhood: 'Z. Oeste',
     platform: 'iFood e 99Food',
     whatsapp: '',
     monthlyOrders: '300 - 800 pedidos/mês'
